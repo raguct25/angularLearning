@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventBindingComponent implements OnInit {
   eventTrigger = "still EventBinding not called";
+  eventName= "ragu";
 
   constructor() { }
 
@@ -16,8 +17,9 @@ export class EventBindingComponent implements OnInit {
   showEventText (){
     return this.eventTrigger = 'event binding function called';
   }
-  inputEventBinding(event:any){
-    console.log('input event binding called...', event.target.value);
+  inputEventBinding(event:Event){
+    // console.log('input event binding called...', event.target.value);
+    this.eventName = (<HTMLInputElement>event.target).value;
   }
 
 }
